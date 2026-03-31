@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>釣れルンです</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-logo">
+        <i data-lucide="fish"></i>
+        <h1>釣れルンです</h1>
+      </div>
+    </header>
+    
+    <main id="app-content" class="app-content">
+      <!-- Views will be dynamically injected here -->
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="home">
+        <i data-lucide="map"></i>
+        <span>提案</span>
+      </button>
+      <button class="nav-btn" data-view="import">
+        <i data-lucide="camera"></i>
+        <span>入力</span>
+      </button>
+      <button class="nav-btn" data-view="analytics">
+        <i data-lucide="bar-chart-2"></i>
+        <span>分析</span>
+      </button>
+      <button class="nav-btn" data-view="tackle">
+        <i data-lucide="briefcase"></i>
+        <span>タックル</span>
+      </button>
+    </nav>
+  </div>
+  
+  <script src="js/bundle.js"></script>
+</body>
+</html>
