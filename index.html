@@ -2,49 +2,80 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>釣れルンです</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>釣れルンです - バス釣り解析＆推奨</title>
+  
+  <!-- PWA & Mobile Meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="tsurerundesu.webmanifest">
+  <link rel="apple-touch-icon" href="tsurerundesu_app_icon.png">
+  <link rel="icon" type="image/png" href="tsurerundesu_app_icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Icons & Leaflet -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Leaflet Map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-container">
+  
+  <!-- SECURITY GATE -->
+  <div id="security-gate" class="security-gate">
+    <div class="gate-content">
+      <div class="gate-logo">
+        <img src="tsurerundesu_app_icon.png" alt="Logo" style="width: 80px; height: 80px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+        <h1>釣れルンです</h1>
+        <p>ENTER PASSCODE</p>
+      </div>
+      <div class="passcode-input-wrapper">
+        <input type="password" id="gate-passcode" placeholder="••••" maxlength="11">
+        <button id="gate-submit">UNLOCKED</button>
+      </div>
+      <p class="gate-error" id="gate-error" style="display: none;">パスコードが違います</p>
+    </div>
+  </div>
+
+  <div class="app-container" id="app-root" style="display: none;">
     <header class="app-header">
       <div class="header-logo">
         <i data-lucide="fish"></i>
         <h1>釣れルンです</h1>
       </div>
+      <div class="header-actions">
+        <!-- Future notification/profile icons -->
+      </div>
     </header>
-    
+
     <main id="app-content" class="app-content">
       <!-- Views will be dynamically injected here -->
+      <div class="loader-container">
+        <div class="spinner"></div>
+      </div>
     </main>
 
     <nav class="bottom-nav">
-      <button class="nav-btn active" data-view="home">
-        <i data-lucide="map"></i>
+      <button class="nav-btn" data-view="home">
+        <i data-lucide="sparkles"></i>
         <span>提案</span>
       </button>
       <button class="nav-btn" data-view="import">
-        <i data-lucide="camera"></i>
+        <i data-lucide="plus-circle"></i>
         <span>入力</span>
       </button>
       <button class="nav-btn" data-view="analytics">
         <i data-lucide="bar-chart-2"></i>
         <span>分析</span>
       </button>
-      <button class="nav-btn" data-view="tackle">
-        <i data-lucide="briefcase"></i>
-        <span>タックル</span>
-      </button>
     </nav>
   </div>
-  
-  <script src="js/bundle.js"></script>
+
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
